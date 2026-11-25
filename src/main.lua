@@ -66,6 +66,7 @@ end
 local function on_ready_late()
 	import "Scripts/FamiliarLogic_Late.lua"
 	import "Scripts/FamiliarPresentation_Late.lua"
+	import "Scripts/SaveLogic_Late.lua"
 end
 
 local function on_reload()
