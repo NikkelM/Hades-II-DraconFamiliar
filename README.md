@@ -7,9 +7,9 @@ The mod is meant to be used together with [Zagreus' Journey](https://www.nikkelh
 When playing with Zagreus' Journey, you can find and bond with Ophis in the Fountain room in the Temple of Styx, otherwise he will automatically appear in the Training Grounds after you perform the "Faith of Familiar Spirits" incantation.
 
 Ophis has the following bonds:
-- **Toxic Bond**: Ophis fires a burst of Venom Darts that apply *1* -> *4* damage stacks per hit and slow foes for *6* -> *10* Seconds.
-- **Blood Bond**: While together, you take *-3%* -> - *-6%* damage.
-- **Prosperous Bond**: While together, any Gold you gain is worth *+4%* -> *+8%*. When leaving a Location, automatically break all Golden Urns and collect their contents.
+- **Toxic Bond**: Ophis fires a burst of Venom Darts that apply *1* / *2* / *3* / *4* damage stacks per hit and slow foes for *4* / *6* / *8* / *10* Seconds.
+- **Blood Bond**: While together, you take *-3%* / *-4%* / *-5%* / *-6%* damage.
+- **Prosperous Bond**: While together, any Gold you gain is worth *+2%* / *+3%* / *+4%* / *+5%*. When leaving a Location, automatically break all Golden Urns and collect their contents.
 
 Ophis also has five alternate forms created by community artist @burn:
 
@@ -27,8 +27,6 @@ Ophis also has five alternate forms created by community artist @burn:
       Puppet<br>
       <img src="https://github.com/NikkelM/Hades-II-DraconFamiliar/raw/main/development/Packages/1080p/NikkelM-Dracon_FamiliarCrossroads/GUIModded/Screens/FamiliarIcons/skin_snake03.png" width="110" height="110" alt="Puppet icon">
     </td>
-  </tr>
-  <tr>
     <td align="center">
       Regal<br>
       <img src="https://github.com/NikkelM/Hades-II-DraconFamiliar/raw/main/development/Packages/1080p/NikkelM-Dracon_FamiliarCrossroads/GUIModded/Screens/FamiliarIcons/skin_snake05.png" width="110" height="110" alt="Regal icon">
@@ -44,15 +42,11 @@ Ophis also has five alternate forms created by community artist @burn:
   </tr>
 </table>
 
-<p align="center">
-  <img src="https://github.com/NikkelM/Hades-II-DraconFamiliar/raw/main/img/screenshots/ophis_costumes.jpg" width="49.7%" alt="Form selection screen" />
-  <img src="https://github.com/NikkelM/Hades-II-DraconFamiliar/raw/main/img/screenshots/toxic_bond.jpg" width="49.7%" alt="Toxic Bond" />
-</p>
+![Toxic Bond](img/screenshots/toxic_bond.jpg)
 
-<p align="center">
-  <img src="https://github.com/NikkelM/Hades-II-DraconFamiliar/raw/main/img/screenshots/prosperous_bond.jpg" width="49.7%" alt="Prosperous Bond" />
-  <img src="https://github.com/NikkelM/Hades-II-DraconFamiliar/raw/main/img/screenshots/blood_bond.jpg" width="49.7%" alt="Blood Bond" />
-</p>
+![Prosperous Bond](img/screenshots/prosperous_bond.jpg)
+
+![Blood Bond](img/screenshots/blood_bond.jpg)
 
 *And yes, of course you can pet Ophis.*
 
