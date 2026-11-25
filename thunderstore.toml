@@ -1,0 +1,46 @@
+[config]
+schemaVersion = "0.0.1"
+
+[package]
+namespace = "NikkelM"
+name = "Dracon_Familiar"
+versionNumber = "0.0.0"
+description = "Adds a new Familiar to the game, a Dracon that shoots poison darts, increases Gold gained, and reduces damage taken. Includes five alternate skins! Intended to play together with Zagreus' Journey."
+websiteUrl = "https://github.com/NikkelM/Hades-II-DraconFamiliar"
+containsNsfwContent = false
+
+[package.dependencies]
+Hell2Modding-Hell2Modding = "1.0.125"
+LuaENVY-ENVY = "1.2.1"
+SGG_Modding-ReLoad = "1.0.3"
+SGG_Modding-SJSON = "1.0.2"
+SGG_Modding-ModUtil = "4.0.1"
+NikkelM-Cosmetics_API = "3.0.2"
+
+[build]
+icon = "./icon.png"
+readme = "./README.md"
+outdir = "./build"
+
+[[build.copy]]
+source = "./CHANGELOG.md"
+target = "./CHANGELOG.md"
+
+[[build.copy]]
+source = "./LICENSE"
+target = "./LICENSE"
+
+[[build.copy]]
+source = "./src"
+target = "./plugins"
+
+[[build.copy]]
+source = "./data"
+target = "./plugins_data"
+
+[publish]
+repository = "https://thunderstore.io"
+communities = [ "hades-ii", ]
+
+[publish.categories]
+hades-ii = [ "cosmetics", "gameplay", "mods" ]

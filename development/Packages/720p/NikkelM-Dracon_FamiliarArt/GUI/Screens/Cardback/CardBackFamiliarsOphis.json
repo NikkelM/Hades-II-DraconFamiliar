@@ -1,0 +1,25 @@
+{
+  "name": "NikkelM-HadesBiomesCosmeticsCardbacks\\GUI\\Screens\\Cardback\\CardBackFamiliarsOphis",
+  "rect": {
+    "x": 0,
+    "y": 0,
+    "width": 254,
+    "height": 399
+  },
+  "topLeft": {
+    "x": 24,
+    "y": 27
+  },
+  "originalSize": {
+    "x": 453,
+    "y": 680
+  },
+  "scaleRatio": {
+    "x": 1.5,
+    "y": 1.5011037527593818
+  },
+  "isMulti": false,
+  "isMip": false,
+  "isAlpha8": false,
+  "hull": []
+}

@@ -1,0 +1,54 @@
+{
+  "name": "Fx\\DionysusStatusFx\\DionysusStatusFx0009",
+  "rect": {
+    "x": 473,
+    "y": 2903,
+    "width": 62,
+    "height": 78
+  },
+  "topLeft": {
+    "x": 20,
+    "y": 9
+  },
+  "originalSize": {
+    "x": 160,
+    "y": 160
+  },
+  "scaleRatio": {
+    "x": 1.4953271028037383,
+    "y": 1.4953271028037383
+  },
+  "isMulti": false,
+  "isMip": false,
+  "isAlpha8": false,
+  "hull": [
+    {
+      "x": 19,
+      "y": -26
+    },
+    {
+      "x": 32,
+      "y": 18
+    },
+    {
+      "x": 32,
+      "y": 26
+    },
+    {
+      "x": -9,
+      "y": 40
+    },
+    {
+      "x": -24,
+      "y": 18
+    },
+    {
+      "x": -28,
+      "y": -24
+    },
+    {
+      "x": -8,
+      "y": -40
+    }
+  ]
+}

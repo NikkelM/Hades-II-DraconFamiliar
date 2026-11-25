@@ -1,0 +1,9 @@
+{
+  Animations = [
+    {
+      Name = "ModsNikkelMHadesBiomes_FamiliarIcon_Snake"
+      InheritFrom = "BoonIcon"
+      FilePath = "NikkelM-Dracon_FamiliarArt\GUIModded\Screens\FamiliarIcons\familiars_snake_01"
+    }
+  ]
+}

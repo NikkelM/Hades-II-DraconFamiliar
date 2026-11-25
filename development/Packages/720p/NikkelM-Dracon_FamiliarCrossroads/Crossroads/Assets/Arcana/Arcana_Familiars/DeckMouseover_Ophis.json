@@ -1,0 +1,25 @@
+{
+  "name": "NikkelM-HadesBiomesCosmetics\\Crossroads\\Assets\\Arcana\\Arcana_Familiars\\DeckMouseover_Ophis",
+  "rect": {
+    "x": 1013,
+    "y": 1532,
+    "width": 169,
+    "height": 157
+  },
+  "topLeft": {
+    "x": 26,
+    "y": 24
+  },
+  "originalSize": {
+    "x": 330,
+    "y": 308
+  },
+  "scaleRatio": {
+    "x": 1.5,
+    "y": 1.502439024390244
+  },
+  "isMulti": false,
+  "isMip": false,
+  "isAlpha8": false,
+  "hull": []
+}

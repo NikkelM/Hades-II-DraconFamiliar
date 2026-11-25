@@ -1,0 +1,25 @@
+{
+  "name": "NikkelM-HadesBiomesCosmetics\\Crossroads\\Icons\\PreRun\\ExitCharm_SnakeFamiliar_Icon",
+  "rect": {
+    "x": 2914,
+    "y": 321,
+    "width": 33,
+    "height": 75
+  },
+  "topLeft": {
+    "x": 0,
+    "y": 0
+  },
+  "originalSize": {
+    "x": 49,
+    "y": 112
+  },
+  "scaleRatio": {
+    "x": 1.4848484848484849,
+    "y": 1.4933333333333334
+  },
+  "isMulti": false,
+  "isMip": false,
+  "isAlpha8": false,
+  "hull": []
+}
