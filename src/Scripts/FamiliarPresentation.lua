@@ -63,29 +63,53 @@ function mod.SnakeFamiliarBurrowEffects(familiar, preventDecalChain)
 end
 
 function mod.SnakeFamiliarBurrowPresentation(familiar)
+	-- Cannot burrow if currently linked through Aspect of Circe
+	if familiar.Linked and game.CurrentHubRoom == nil then
+		return false
+	end
+
+	familiar.BurrowTransition = "Burrowing"
 	mod.SnakeFamiliarBurrowEffects(familiar)
 	SetAnimation({ Name = familiar.BurrowAnimation, DestinationId = familiar.ObjectId })
 	game.wait(familiar.BurrowDuration, familiar.AIThreadName)
+
+	if familiar.BurrowTransition ~= "Burrowing" then
+		return false
+	end
+
 	SetAnimation({ Name = familiar.HiddenAnimation, DestinationId = familiar.ObjectId })
 	SetAlpha({ Id = familiar.ObjectId, Fraction = 0.0 })
 	familiar.Burrowed = true
+	familiar.BurrowTransition = nil
+
+	return true
 end
 
-function mod.SnakeFamiliarUnburrowPresentation(familiar)
-	if not mod.SnakeFamiliarEnsureSafeUnburrowLocation(familiar) then
+function mod.SnakeFamiliarUnburrowPresentation(familiar, threadName)
+	if familiar.BurrowTransition == "Unburrowing" or (familiar.BurrowTransition ~= "Burrowing" and not mod.SnakeFamiliarEnsureSafeUnburrowLocation(familiar)) then
 		return
 	end
 
+	familiar.BurrowTransition = "Unburrowing"
+	threadName = threadName or familiar.AIThreadName
 	local unburrowAnimation = familiar.AtHabitat and familiar.HabitatUnburrowAnimation or familiar.UnburrowAnimation
 	SetAnimation({ Name = unburrowAnimation, DestinationId = familiar.ObjectId })
 	SetAlpha({ Id = familiar.ObjectId, Fraction = 1.0 })
-	game.wait(familiar.UnburrowDuration, familiar.AIThreadName)
+	game.wait(familiar.UnburrowDuration, threadName)
+
+	if familiar.BurrowTransition ~= "Unburrowing" then
+		return
+	end
+
 	SetAnimation({ Name = familiar.IdleAnimation, DestinationId = familiar.ObjectId })
 	game.wait(
 		game.RandomFloat(familiar.PostUnburrowDurationMin, familiar.PostUnburrowDurationMax),
-		familiar.AIThreadName
+		threadName
 	)
-	familiar.Burrowed = false
+	if familiar.BurrowTransition == "Unburrowing" then
+		familiar.Burrowed = false
+		familiar.BurrowTransition = nil
+	end
 end
 
 function mod.SnakeFamiliarSpecialInteractLockedInRun(familiar)

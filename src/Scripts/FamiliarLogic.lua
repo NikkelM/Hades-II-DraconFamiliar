@@ -89,11 +89,27 @@ function mod.SnakeFamiliarEnsureSafeUnburrowLocation(familiar)
 		return true
 	end
 
-	if game.FamiliarShouldUseCombatLogic() then
+	if familiar.Linked or game.FamiliarShouldUseCombatLogic() then
 		return false
 	end
 
 	return teleportSnakeFamiliarNearHero(familiar)
+end
+
+function mod.SnakeFamiliarLinkBegin(familiar)
+	if game.CurrentHubRoom ~= nil or familiar.BurrowTransition == "Unburrowing" or (not familiar.Burrowed and familiar.BurrowTransition ~= "Burrowing") then
+		return
+	end
+
+	if familiar.Burrowed then
+		local targetId = getSnakeFamiliarTarget(familiar)
+		local destinationId = (targetId > 0 and getSnakeFamiliarFiringLocation(familiar, targetId)) or
+				getSnakeFamiliarLocationNearHero()
+		if destinationId ~= nil and destinationId ~= familiar.ObjectId then
+			Teleport({ Id = familiar.ObjectId, DestinationId = destinationId })
+		end
+	end
+	mod.SnakeFamiliarUnburrowPresentation(familiar, game.RoomThreadName)
 end
 
 local function isSnakeFamiliarAttackTargetValid(familiar, targetId)
@@ -108,16 +124,23 @@ local function snakeFamiliarTryAttack(familiar)
 	end
 
 	local targetId = getSnakeFamiliarTarget(familiar)
-	local firingLocationId = targetId > 0 and getSnakeFamiliarFiringLocation(familiar, targetId)
-	if firingLocationId then
-		mod.SnakeFamiliarMoveToLocation(familiar, { Id = firingLocationId, KeepAIAlive = true })
-		if not familiar.Burrowed and isSnakeFamiliarAttackTargetValid(familiar, targetId) then
+	if targetId > 0 then
+		local readyToAttack
+		if familiar.Linked then
+			readyToAttack = not familiar.Burrowed and familiar.BurrowTransition == nil and
+					isSnakeFamiliarLocationValid(familiar.ObjectId, targetId)
+		else
+			local firingLocationId = getSnakeFamiliarFiringLocation(familiar, targetId)
+			readyToAttack = firingLocationId and
+					mod.SnakeFamiliarMoveToLocation(familiar, { Id = firingLocationId, KeepAIAlive = true })
+		end
+		if readyToAttack and isSnakeFamiliarAttackTargetValid(familiar, targetId) then
 			mod.SnakeFamiliarAttackPresentation(familiar, { TargetId = targetId })
 			return true
 		end
 	end
 
-	if familiar.Burrowed and game.IsAIActive(familiar) and game.FamiliarShouldUseCombatLogic() and teleportSnakeFamiliarNearHero(familiar) then
+	if not familiar.Linked and familiar.Burrowed and game.IsAIActive(familiar) and game.FamiliarShouldUseCombatLogic() and teleportSnakeFamiliarNearHero(familiar) then
 		mod.SnakeFamiliarUnburrowPresentation(familiar)
 	end
 
@@ -176,6 +199,10 @@ function mod.SnakeFamiliarStopAI(familiar)
 	familiar.AIBehavior = nil
 
 	game.killTaggedThreads(familiar.AIThreadName)
+	if familiar.BurrowTransition ~= nil then
+		familiar.Burrowed = familiar.BurrowTransition == "Burrowing"
+		familiar.BurrowTransition = nil
+	end
 	game.wait(0.02)
 end
 
@@ -186,8 +213,8 @@ function mod.SnakeFamiliarMoveToLocation(familiar, args)
 	if not args.KeepAIAlive then
 		mod.SnakeFamiliarStopAI(familiar)
 	end
-	if not familiar.Burrowed then
-		mod.SnakeFamiliarBurrowPresentation(familiar)
+	if not familiar.Burrowed and not mod.SnakeFamiliarBurrowPresentation(familiar) then
+		return false
 	end
 	Teleport({
 		Id = familiar.ObjectId,
@@ -195,6 +222,8 @@ function mod.SnakeFamiliarMoveToLocation(familiar, args)
 	})
 	familiar.AtHabitat = game.CurrentHubRoom ~= nil and destinationId == familiar.KitId
 	mod.SnakeFamiliarUnburrowPresentation(familiar)
+
+	return not familiar.Burrowed
 end
 
 -- Vanilla familiars have their default costume as part of their default model, SnakeFamiliar would use the "enemy" texture if we don't do this

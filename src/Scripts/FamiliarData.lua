@@ -114,6 +114,7 @@ local snakeFamiliarData = {
 
 		-- Functions
 		ActivatePresentationFunctionName = _PLUGIN.guid .. "." .. "SnakeFamiliarSpawnPresentation",
+		LinkBeginFunctionName = _PLUGIN.guid .. "." .. "SnakeFamiliarLinkBegin",
 		MoveFunctionName = _PLUGIN.guid .. "." .. "SnakeFamiliarMoveToLocation",
 		StopAIFunctionName = _PLUGIN.guid .. "." .. "SnakeFamiliarStopAI",
 		TurnInPlaceAnimation = "ModsNikkelMHadesBiomesSnakeFamiliar_Idle",
