@@ -5,7 +5,7 @@ schemaVersion = "0.0.1"
 namespace = "NikkelM"
 name = "Dracon_Familiar"
 versionNumber = "0.0.0"
-description = "Adds a new Familiar to the game, a Dracon that shoots poison darts, increases Gold gained, and reduces damage taken. Includes five alternate skins! Intended to play together with Zagreus' Journey."
+description = "Adds a new Familiar to the game, Ophis the Dracon. He shoots poison darts, reduces damage taken, and increases Gold gained (and automatically breaks Golden Urns for you!). Includes five alternate skins! Recommended to use with Zagreus' Journey."
 websiteUrl = "https://github.com/NikkelM/Hades-II-DraconFamiliar"
 containsNsfwContent = false
 
