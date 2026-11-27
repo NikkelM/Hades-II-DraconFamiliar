@@ -9,3 +9,19 @@ modutil.mod.Path.Context.Wrap.Static("FamiliarRecruitPresentation", function()
 		return base(args)
 	end)
 end)
+
+modutil.mod.Path.Context.Wrap.Static("BiomeMapPresentation", function()
+	modutil.mod.Path.Wrap("SetAnimation", function(base, args)
+		local result = base(args)
+
+		if args.Name == "ModsNikkelMHadesBiomesSnakeFamiliar_MapMarker" then
+			game.SetThingProperty({
+				DestinationId = args.DestinationId,
+				Property = "GrannyTexture",
+				Value = game.MapState.FamiliarUnit.MarkerTexture,
+			})
+		end
+
+		return result
+	end)
+end)

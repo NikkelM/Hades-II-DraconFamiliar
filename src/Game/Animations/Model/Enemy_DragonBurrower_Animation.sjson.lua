@@ -90,6 +90,23 @@ local addAnimations = {
 		InheritFrom = "Enemy_DragonBurrower_Unburrow",
 		CreateAnimation = "ModsNikkelMHadesBiomesSnakeFamiliar_BurrowFxIn_NoDecal",
 	},
+	{
+		Name = "ModsNikkelMHadesBiomesSnakeFamiliar_MapMarker",
+		InheritFrom = "Enemy_DragonBurrower_Idle",
+		Scale = 2.3,
+		GrannyRotationX = 25,
+		GrannyAnimationSpeed = 0,
+		Loop = false,
+		HoldLastFrame = true,
+		CancelOnOwnerMove = false,
+		VisualFx = "BiomeMapMarkerMoveDust",
+		VisualFxDistanceMin = 30,
+		VisualFxDistanceMax = 60,
+		Frames = {
+			{ Frame = 0,  FrameSpeed = 0 },
+			{ Frame = 93, FrameSpeed = 1 },
+		},
+	},
 }
 
 sjson.hook(animationsFile, function(data)

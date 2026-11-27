@@ -240,12 +240,11 @@ local snakeFamiliarData = {
 			},
 		},
 
-		-- TODO:
 		-- Map Marker
-		-- MarkerIdleAnimation = "FrogMarkerIdle",
-		-- MarkerJumpAnimation = "FrogMarkerJump",
-		-- MarkerModel = "FrogMarker_Mesh",
-		-- MarkerMoveAnimation = "FrogMarkerMove",
+		MarkerIdleAnimation = "ModsNikkelMHadesBiomesSnakeFamiliar_MapMarker",
+		MarkerJumpAnimation = "ModsNikkelMHadesBiomesSnakeFamiliar_MapMarker",
+		MarkerModel = "Dracon_Mesh",
+		MarkerTexture = "ModsNikkelMHadesBiomesSnakeFamiliar/SnakeFamiliar_Color",
 
 		-- Sounds
 		BurrowSound = "/SFX/Enemy Sounds/RangedBurrower/DraconSubmerge",
