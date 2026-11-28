@@ -64,6 +64,8 @@ local function on_ready()
 end
 
 local function on_ready_late()
+	-- Run on_ready_late to ensure ZJ has added its bounties
+	import "Scripts/BountyLogic.lua"
 	import "Scripts/FamiliarLogic_Late.lua"
 	import "Scripts/FamiliarPresentation_Late.lua"
 	import "Scripts/SaveLogic_Late.lua"
